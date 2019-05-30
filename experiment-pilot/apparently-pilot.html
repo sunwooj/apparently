@@ -1,0 +1,398 @@
+<html>
+<head>
+
+<title>Language experiment</title>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- FOR MTURK -->
+<script type="text/javascript" src="https://sunwooj.github.io/experiments-shared/mmturkey.0.5.js"></script> 
+
+<!-- FOR PHP DATA GATHERING -->
+<!-- <script type="text/javascript" src="https://stanford.edu/~sunwooj/experiments/mmturkey-extension.js"></script>  -->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<script src="apparently-pilot.js"></script>
+
+<link href="local-style.css" rel="stylesheet" type="text/css"/>
+
+<link rel="stylesheet" href="https://sunwooj.github.io/experiments-shared/sliders/jquery-ui.css"></link>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+</head>
+
+
+
+
+<!-- main html body -->
+
+<body>
+
+<div class='slide' id='intro'>   
+    <div>
+
+<br>
+<img src="PU-standard.png" alt="Princeton Program in Linguistics" width="240">
+<br>
+<!-- <p>
+NOTE: PLEASE DO NOT OPEN THE SURVEY IN A NEW TAB. THIS WILL PREVENT MTURK FROM SUBMITTING THE RESULTS. THERE IS NO VERIFICATION CODE AT THE END. MTURK WILL SUBMIT THE RESULTS AUTOMATICALLY.<br><br>
+</p> -->
+
+<p class='block-text2'>We invite you to participate in a research study on language production and comprehension. The study will take approximately 10 minutes to complete. Before you decide to participate, please read and indicate that you agree to the Informed Consent form, below. </p>
+<p class='scrollbox'>
+LEGAL INFORMATION: IRB INFO <br>
+(Please scroll down and read this form before proceeding.)
+<br><br>
+There are no risks or benefits of any kind involved in this study. You will be paid for your participation at the posted rate.
+If you have read this form and have decided to participate in this experiment, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written data resulting from the study.  You do not waive any legal rights or release Princeton University, its agents, or the investigator from liability for negligence. You may print this form for your records.
+<br><br>
+If you have any questions, please contact one of the investigators, Byron Ahn, at bta@princeton.edu.
+</p>
+
+<br>
+
+<p class='block-text2'>Please make sure that you have a functioning headset, and please check your speaker volume by clicking on the sample audio file below. If you agree to the consent form, meet the audio requirement, and wish to participate in the experiment, please check the box below and click: Continue.</p>
+
+<span style="font-weight: bold;"> Test Sound </span>
+<br>
+<audio id="sampleAudio" controls=""><source src="#" type="audio/wav"></audio>
+<br><br>
+<form class='block-text2'>
+  <input type='checkbox' id='speaker' name='speaker' value='1'> I have functioning headphones and an audio system that can play sound files. <br>
+</form>
+
+<br>
+<button type='button' id='startbutton'>Continue</button>
+<br>
+<p><span style='color: blue' id="checkboxWarning"></span></p>
+
+    </div>
+</div>
+
+
+
+
+<div class='slide' id='instructions'>
+    <div>
+        <div>
+
+<p><span style="font-weight: bold; color: #8C1515;">Instructions</p>
+
+<p class='block-text' id='instr1'>In this study, you will read short dialogue scripts, and play sound files corresponding to parts of each dialogue. After listening and considering the contexts carefully, you will answer a few questions about the exchange.</p>
+<br>
+<button type='button' id='instrbutton1'>Continue instructions</button>
+
+<p class='block-text' id='instr2'>Since the way sentences are pronounced matters, with different emphasis and tones, we ask you to please listen carefully to the recording (perhaps more than once) before answering each question.</p>
+<br>
+<button type='button' id='instrbutton2'>Continue with instructions</button>
+
+<form id='instrForm'>
+<p class='block-text'> If you have understood the instructions, please click on: Start experiment.</p>
+
+<p class='block-text'> <strong> Note: This is a psychology experiment requiring undivided attention on your part. Please devote your attention solely to this task and read carefully. <span style="font-weight: bold; color: #8C1515;">We will check to make sure that everything was read and every audio file was played. Thanks for your participation!</span></strong> </p>
+</form>
+
+<!-- <p><span style='color: blue' id="veriWarning"></span></p> -->
+<br>
+<button type='button' id='mainbutton'>Start experiment</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Main experiment starts here -->
+<div class='slide' id='stage'>
+    <div>
+        <div>
+
+
+
+<!-- Situation and audio -->
+<form id='audioForm'>
+
+<p><span style="font-weight: bold; color: #8C1515;"> Situation <span class="item_number">{{}}</span> out of 12</span> 
+</p>
+
+<!-- background context, leading sentence, audio reply -->
+<table style="width: 80%; margin-left:auto; margin-right:auto;">
+	<tr id='row1'>
+		<td class='column1' style="font-size: 110%; font-weight: bold;" align="right">
+			Context:
+		</td>
+		<td class='block-text' style="font-size: 110%; width: 70%;"> 
+			<span class='currentContext'>{{}}</span>
+		</td>
+	</tr>
+	<tr id='row2'>
+		<td class='column1' style="font-size: 110%; font-weight: bold; padding-top: 15px;" align="right">
+			<span class='currentName1'>{{}}</span> says:
+		</td>
+		<td class='block-text' style="font-size: 110%; padding-top: 15px;width: 70%;"> 
+			&ldquo;<span class='currentSentence' style='text-align: center;'>{{}}</span>&rdquo;
+		</td>
+	</tr>
+	<tr id='row3'>
+		<td class='column1' style="font-size: 110%; font-weight: bold; padding-top: 15px; " align="right">
+			<span class='currentName2'>{{}}</span> replies:
+		</td>
+		<td class='block-text' style="font-size: 110%; padding-top: 15px; width: 70%;"> 
+			<audio id="currentAudio" controls=""><source src="#" type="audio/wav"></audio></br>
+			<span style="font-size: 84%; color: #8C1515; text-align:center;">(Please click on the audio clip below and listen carefully.) </span>
+		</td>
+	</tr>
+</table>
+
+</form>
+
+<button type='button' id='audiobutton'>Continue</button>
+
+
+<p class='block-text' id='manytimes'>Please answer the following question. You can listen to the audio as many times as you want.</p>
+
+<!-- Q1: Follow-up -->
+<form class='box' id='responseForm1'>
+
+<p class='block-text'>Q1: How naturally can <span class='currentName2'>{{}}</span> follow up with: </p>
+
+<span class='quote-text'>&ldquo;...<span class='currentFollowup'>{{}}</span>&rdquo;</span>
+
+<!--   <input type="hidden" class="slidervals" name="sliderval1" id="sliderval1" readonly style="border:0; color:#f6931f; font-weight:bold;">
+
+<p>
+<span class='leftLabel'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Not natural
+</span> 
+<span class='rightLabel'> Very natural &nbsp; &nbsp; &nbsp; &nbsp; </span>
+<br>
+<span style='float: left;'> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (0) </span>  
+<span style='float: right;'> (100) &nbsp; &nbsp; &nbsp; &nbsp; </span>
+<div class="sliders" id="slider1"></div>
+<span style="font-size: 84%;"> (Drag or click the sliders to left or right.) 
+</span>
+</p> -->
+
+<table align='center'>
+    <tr>
+        <td width="14%"> <span class='cellLabel'>Not at all natural</span> </td>
+        <td width="14%"> </td>
+        <td width="14%"> </td>
+        <td width="14%"> </td>
+        <td width="14%"> </td>
+        <td width="14%"> </td>
+        <td width="14%"> <span class='cellLabel'>Completely natural</span> </td>
+    </tr>
+    <tr>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="1" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="2" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="3" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="4" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="5" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="6" /></td>
+        <td width="14%"><input type="radio" class="likertN" name="natural" value="7" /></td>
+    </tr>
+    <tr>
+        <td width="14%">1</td>
+        <td width="14%">2</td>
+        <td width="14%">3</td>
+        <td width="14%">4</td>
+        <td width="14%">5</td>
+        <td width="14%">6</td>
+        <td width="14%">7</td>
+    </tr>
+</table>
+
+</form>
+
+
+
+
+<!-- Q2: betting -->
+<form class='box' id='responseForm2'>
+
+<p class='block-text'>Q2: If <span class='currentName2'>{{}}</span> had to bet between &dollar;1 and &dollar;100 on <span class='currentRadical'>{{}}</span>, what is the most you think <span class='currentName2'>{{}}</span> would bet? </p>
+
+<input type='text' id="commentBox1" class="commentBox" style="width: 400px;" value="" />
+
+</form>
+
+
+
+<!-- Optional responses -->
+<form class='box' id='optionalForm'>
+<p id='optional1' class='block-text'>(Optional) Any additional comments?</p>
+
+<input type='text' id="commentBox2" class="commentBox" style="width: 400px;" value="" />
+
+</form>
+<br>
+
+
+
+
+<!-- Warning message in case any of Q1-Q2 doesn't get a response -->
+<p><span style='color: blue' id="warning"></span></p>
+
+
+<button type='button' id='continue'>Continue</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Demographic information slide -->
+<div class='slide' id='language'>
+    <div>
+
+
+<form id='languageForm'>
+
+<p class='questionSent'> 
+As a final step, we ask that you fill out the following brief exit questionnaire.
+</p>
+
+
+<!-- <form id='eval'>
+<p class='questionSent'> Did you enjoy the HIT?
+<br>
+<input type='radio' class='eval' name='AmE' id='evalpos' value='yes' /> Yes <br>
+<input type='radio' class='eval' name='AmE' id='evalneg' value='maybe' /> Not really <br>
+<input type='radio' class='eval' name='AmE' id='evalneg' value='no' /> No <br>
+</p>
+</form> -->
+
+
+<form id='hearing'>
+<p class='questionSent'> Have you ever been diagnosed with hearing loss?
+<br>
+<input type='radio' class='hearing' name='hl' id='yeshl' value='yes' /> Yes <br>
+<input type='radio' class='hearing' name='hl' id='nohl' value='no' /> No <br>
+<input type='radio' class='hearing' name='hl' id='nobuthl' value='nobut' /> No, but I have trouble hearing <br>
+</p>
+</form>
+
+
+<form id='englishNative'>
+<p class='questionSent'> Do you speak American English natively? (i.e., Have you spoken it since a young age?)
+<br>
+<input type='radio' class='nat' name='AmE' id='AmE' value='1' /> Yes <br>
+<input type='radio' class='nat' name='AmE' id='nonAmE' value='0' /> No <br>
+</p>
+</form>
+
+
+<form id='ageForm'>
+<p class='questionSent'> What is your age, in years?
+<br>
+<input type='text' id='age_com' value="" />
+<!-- <input type='radio' class='age' name='age' id='20s' value='1' /> 18-29 <br>
+<input type='radio' class='age' name='age' id='30s' value='2' /> 30-39 <br>
+<input type='radio' class='age' name='age' id='40s' value='3' /> 40-49 <br>
+<input type='radio' class='age' name='age' id='50s' value='4' /> 50-59 <br>
+<input type='radio' class='age' name='age' id='60s' value='5' /> 60+ <br>
+</p>
+<p class='questionSent'> Please list any other languages that you speak fluently.
+<br>
+<input type='text' id='languages' value="" />
+</p> -->
+</p>
+</form>
+
+
+<form id='genderForm'>
+<p class='questionSent'> How would you describe your gender? (Select as many as you like, or add any number of other descriptors next to the &lsquo;other&rsquo; box.)
+<br>
+<input type='checkbox' class='gen' name='gen' id='agender' value='agender' /> Agender <br>
+<input type='checkbox' class='gen' name='gen' id='cis' value='agender' /> Cis <br>
+<input type='checkbox' class='gen' name='gen' id='female' value='female' /> Female <br>
+<input type='checkbox' class='gen' name='gen' id='male' value='male' /> Male <br>
+<input type='checkbox' class='gen' name='gen' id='nonbi' value='nonbi' /> Non-binary <br>
+<input type='checkbox' class='gen' name='gen' id='trans' value='trans' /> Trans <br>
+<input type='checkbox' class='gen' name='gen' id='genother' value='genOT' /> Other:  <input type='text' name='gen' id='gend_com' /><br>
+</p>
+</form>
+
+
+<form id='ethnicityForm'>
+<p class='questionSent'> How would you describe your racial/ethnic identity? (Select as many as you like, or add any number of other descriptors next to the &lsquo;other&rsquo; box.)
+<br>
+<input type='checkbox' class='race' name='eth' id='afa' value='BL' /> Black/African <br>
+<input type='checkbox' class='race' name='eth' id='asa' value='AS' /> Asian <br>
+<input type='checkbox' class='race' name='eth' id='ca' value='CA' /> Caucasian/White <br>
+<input type='checkbox' class='race' name='eth' id='la' value='HI' /> Hispanic/Latinx <br>
+<input type='checkbox' class='race' name='eth' id='me' value='ME' /> Middle Eastern <br>
+<input type='checkbox' class='race' name='eth' id='mi' value='MI' /> Mixed <br>
+<input type='checkbox' class='race' name='eth' id='nta' value='NA' /> Native American <br>
+<input type='checkbox' class='race' name='eth' id='pi' value='PI' /> Pacific Islander <br>
+<input type='checkbox' class='race' name='eth' id='oa' value='raceOT' /> Other:  <input type='text' name='eth' id='race_com' /><br>
+</p>
+</form>
+
+
+<p class='questionSent'>Where would you say you grew up? i.e., What is your hometown? (Include the country.)
+<br>
+<input type='text' id='home_com' value="" />
+<!-- <input type='radio' class='reg' name='reg' id='nonus' value='nonUS' /> Outside the US <br>
+<input type='radio' class='reg' name='reg' id='o48s' value='2' /> Outside the contiguous 48 states <br>
+<input type='radio' class='reg' name='reg' id='neweng' value='3' /> New England <br>
+<input type='radio' class='reg' name='reg' id='midatl' value='4' /> The Mid-Atlantic / Northeast Corridor (greater DC, Philadelphia, NY) <br>
+<input type='radio' class='reg' name='reg' id='midw' value='5' /> The Midwest / The Great Lakes <br>
+<input type='radio' class='reg' name='reg' id='appal' value='5' /> Appalachia / The South <br>
+<input type='radio' class='reg' name='reg' id='sw' value='5' /> The Southwest <br>
+<input type='radio' class='reg' name='reg' id='rock' value='5' /> The Rockies <br>
+<input type='radio' class='reg' name='reg' id='wc' value='5' /> The West Coast <br>
+<input type='radio' class='reg' name='reg' id='rego' value='6' /> Other:  <input type='text' name='eth' id='reg_com' /><br> -->
+</p>
+
+
+<p class='questionSent'>Please list up to five (5) other regions that you have lived in for a significant amount of time
+<br>
+<input type='text' id='towns_com' value="" />
+</p>
+
+
+<p class='questionSent'>What languages (including English) were regularly spoken in your childhood home?
+<br>
+<input type='text' id='lang_com1' value="" />
+</p>
+
+
+<p class='questionSent'>Please list up to five (5) languages that you have had long-term experience with, including English, and briefly describe your proficiency in each.
+<br>
+<input type='text' id='lang_com2' value="" />
+</p>
+
+
+<p class='questionSent'>Any other comments about the questions above or the general experiment?
+<br>
+<input type='text' id='exp_com' value="" />
+</p>
+
+
+</form>
+
+<br>
+
+<p><span style='color: blue' id="demoWarning"></span></p>
+
+<button type='button' id='lgsubmit'>Submit</button>
+
+    </div>
+</div>
+
+
+<div class='slide' id='finish'>
+<p>You're done with the experiment. Thanks so much for participating!</p>
+</div>
+
+</body>
+</html>
