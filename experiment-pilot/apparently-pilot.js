@@ -8,7 +8,7 @@ var stimuliList = shuffle([
 
 ["Jane and Sam arrive at the train station, and notice a lot of people going in.", "Jane", "Sam", "Looks like our train is going to be full.", ["There is only one train leaving in the next hour, so it can't be that all these people are on another train.", "But I wouldn't be surprised if it turns out that most of these people are on different train."], ["max", "min"], ["probably-S-CT-HLL-manip", "probably-S-NCT-LHLL-manip", "probably-L-CT-HLL-manip",  "probably-L-NCT-LHLL-manip"], "the train being full"],
 
-["Laura needs a lighter for the birthday candles, and just remembered that Mike is a smoker, so he might have one.", "Laura", "Jim", "I bet Mike has a lighter.", ["If he doesn't, we're screwed.", "If he doesn't, we can still find a way to light the cake."], ["max", "min"], ["hopefully-S-NCT-LHLL-manip", "hopefully-L-CT-HLL", "hopefully-L-NCT-LHLL-manip", "hopefully-S-CT-HLL-manip"], "Mike having a lighter"],
+["Laura needs a lighter for the birthday candles, and just remembered that Mike is a smoker, so he might have one.", "Laura", "Jim", "I bet Mike has a lighter.", ["If he doesn't, we're screwed.", "If he doesn't, we can still find a way to light the cake."], ["max", "min"], ["hopefully-S-NCT-LHLL-manip", "hopefully-L-CT-HLL-manip", "hopefully-L-NCT-LHLL-manip", "hopefully-S-CT-HLL-manip"], "Mike having a lighter"],
 
 ["Lily and James recognize Nick walking across the street with an unfamiliar woman.", "Lily", "James", "I guess Nick has a new girlfriend.", ["They seem too intimate to be just friends. They must be dating.", "Though she could just be a colleague."], ["max", "min"], ["apparently-L-CT-HLL-manip",  "apparently-L-NCT-LHLL-manip", "apparently-S-CT-HLL-manip", "apparently-S-NCT-LHLL-manip"], "Nick having a new girlfriend"],
 
@@ -16,7 +16,7 @@ var stimuliList = shuffle([
 
 ["Maria and John are deciding between taking the train and taking the bus from the airport. When they get to the transportation center, a sign says &lsquo;Trains out of service&rsquo;.", "Maria", "John", "We'll have to take the bus.", ["The bus is the only way to get there.", "We can take a taxi too."], ["max", "min"], ["guess-S-CT-HLL-manip", "guess-S-NCT-LHLL-manip", "guess-L-CT-HLL-manip", "guess-L-NCT-LHLL-manip"], "having to take the bus"],
 
-["Kris and Shane look out the window and see lots of puddles and a wet sidewalk.", "Liz", "Dan", "It looks like it rained.", ["That's the only way that those puddles would have gotten there.", "But maybe some kids made those puddles by playing with a hose."], ["max", "min"], ["musthave-S-NCT-LHLL-manip", "musthave-L-CT-HLL-manip", "musthave-L-NCT-LHLL-manip", "musthave-S-CT-HLL-manip"], "it having rained"],
+["Kris and Shane look out the window and see lots of puddles and a wet sidewalk.", "Liz", "Dan", "It looks like it was raining during class.", ["That's the only way that those puddles would have gotten there.", "But maybe some kids made those puddles by playing with a hose."], ["max", "min"], ["musthave-S-NCT-LHLL-manip", "musthave-L-CT-HLL-manip", "musthave-L-NCT-LHLL-manip", "musthave-S-CT-HLL-manip"], "it having rained"],
 
 ["Mary and Joe are on their way to visit Lila.", "Mary", "Joe", "Lila might have two cats.", ["She loves cats.", "She loves cats."], ["Cmax", "Cmax"], ["C-1-control-max", "C-1-control-max", "C-1-control-max", "C-1-control-max"], "Lila having two cats"],
 
@@ -26,7 +26,7 @@ var stimuliList = shuffle([
 
 ["Tom and Jacob are talking about bees.", "Tom", "Jacob", "Your shirt might send a signal to bees.", ["Not the color purple.", "Instead of repelling bees."], ["FNoun", "FVerb"], ["F-2-filler-attracts-manip", "F-2-filler-attracts-manip", "F-1-filler-yellow-manip", "F-1-filler-yellow-manip"], "on the color yellow attracting bees"],
 
-["Dan and Matt are talking about an event.", "Dan", "Matt", "I wonder who might have gone.", ["Everyone stayed home and watched football instead.", "Tim went but James stayed home."], ["FQNeg", "FNegQ"], ["go-Hs-LH-manip", "go-Hs-LL-manip", "go-LsH-LH-manip", "go-LsH-LL-manip"], "every man having gone to the event"],
+["Dan and Matt are talking about an event.", "Dan", "Matt", "I wonder which men might have gone.", ["Everyone stayed home and watched football instead.", "Tim went but James stayed home."], ["FQNeg", "FNegQ"], ["go-Hs-LH-manip", "go-Hs-LL-manip", "go-LsH-LH-manip", "go-LsH-LL-manip"], "every man having gone to the event"],
 
 ["Jim and Bill are talking about an exam.", "Jim", "Bill", "I wonder who passed the exam.", ["Lisa passed, but Bertie didn't.", "They all failed because the exam was too difficult."], ["FNegQ", "FQNeg"], ["exam-LsH-LH-manip", "exam-LsH-LL-manip", "exam-Hs-LH-manip", "exam-Hs-LL-manip"], "every student failing the exam"]
 
