@@ -1,6 +1,6 @@
 //(if collecting data with php/server instead of MTurk)
-//var experimentName = "apparentlyPilot";
-//var submitAddress = "https://web.stanford.edu/~junhongc/cgi-bin/process.php";
+var experimentName = "apparentlyPilot";
+var submitAddress = "https://web.stanford.edu/~junhongc/cgi-bin/process.php";
 
 
 
@@ -249,7 +249,7 @@ function stepExperiment () {
 
 
             // Check for valid answers; all questions from Q1-Q3 must be answered
-            if  ($('.likertN:checked').length > 0 && betResponse != "") {
+            if  ($('.likertN:checked').length > 0 && betResponse != "" && Number(betResponse) >= 1 && Number(betResponse) <= 100) {
                 
                 $(".likertN").prop('checked', false);
                 // make continue button available for re-use
@@ -356,6 +356,11 @@ function stepExperiment () {
 //     $(".sliders" + " .ui-slider-handle").css({
 //         "background":"#FAFAFA",
 //         "border-color": "#CCCCCC" });
+// }
+
+// function validate(str, chk, min, max) {
+//   n = parseFloat(str);
+//   return (chk && !isNaN(n) && n >= min && n <= max);
 // }
 
 
